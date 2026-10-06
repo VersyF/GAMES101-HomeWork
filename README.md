@@ -20,3 +20,6 @@ Homework2
 26/10/2 - accomplish rasterize_Triangle function without check
 
 26/10/3 - fixed some bugs
+
+26/10/6 - complete homework2
+![alt text](MarkdownPicture/Snipaste_2026-10-06_22-42-00.png)

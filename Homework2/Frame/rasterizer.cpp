@@ -118,6 +118,10 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t) {
         minY = std::min(minY, v[i].y());
         maxY = std::max(maxY, v[i].y());
     }
+    int Xmin = std::max(0, (int)std::floor(minX));
+    int Xmax = std::min(width - 1, (int)std::ceil(maxX));
+    int Ymin = std::max(0, (int)std::floor(minY));
+    int Ymax = std::min(height - 1, (int)std::ceil(maxY));
 
     // iterate through the pixel and find if the current pixel is inside the triangle
     // If so, use the following code to get the interpolated z value.
@@ -127,9 +131,9 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t) {
     //z_interpolated *= w_reciprocal;
     // TODO : set the current pixel (use the set_pixel function) to the color of the triangle (use getColor function) if it should be painted.
 
-    for(int i = std::floor(minY); i <= std::ceil(maxY) ; i++)
+    for(int i = Ymin; i <= Ymax ; i++)
     {
-        for(int j = std::floor(minX); j <= std::ceil(maxX); j++)
+        for(int j = Xmin; j <= Xmax; j++)
         {
             Eigen::Vector2f posScreen(j+0.5f, i+0.5f);
             if(DotInTriangle(posScreen, v))
@@ -139,13 +143,17 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t) {
                 float z_interpolated = alpha * v[0].z() / v[0].w() + beta * v[1].z() / v[1].w() + gamma * v[2].z() / v[2].w();
                 z_interpolated *= w_reciprocal;
 
+                
                 int index = get_index(j, i);
-                float depth = depth_buf[index];
-                if(depth > z_interpolated)
+                if(index < 0 || index >= depth_buf.size()){
+                    continue;
+                }
+                if(depth_buf[index] > z_interpolated)
                 {
-                    depth = z_interpolated;
+                    depth_buf[index] = z_interpolated;
                     set_pixel(Eigen::Vector3f(j, i, 1.0f), t.getColor());
                 }
+                    
             }
         }
     }
@@ -170,7 +178,8 @@ bool rst::rasterizer::DotInTriangle(Eigen::Vector2f pos, std::array<Eigen::Vecto
     float c2 = BC.x() * BO.y() - BC.y() * BO.x();
     float c3 = CA.x() * CO.y() - CA.y() * CO.x();
 
-    return (c1 > 0 && c2 > 0 && c3 > 0) || (c1 < 0 && c2 < 0 && c3 < 0);
+    
+    return (c1 >= 0 && c2 >= 0 && c3 >= 0) || (c1 <= 0 && c2 <= 0 && c3 <= 0);
 
 }
 
@@ -214,10 +223,11 @@ int rst::rasterizer::get_index(int x, int y)
 
 void rst::rasterizer::set_pixel(const Eigen::Vector3f& point, const Eigen::Vector3f& color)
 {
-    //old index: auto ind = point.y() + point.x() * width;
-    auto ind = (height-1-point.y())*width + point.x();
+    int x = static_cast<int>(point.x());
+    int y = static_cast<int>(point.y());
+    if (x < 0 || x >= width || y < 0 || y >= height) return;
+    auto ind = (height - 1 - y) * width + x;
     frame_buf[ind] = color;
-
 }
 
 // clang-format on

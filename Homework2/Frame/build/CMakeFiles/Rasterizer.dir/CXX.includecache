@@ -6,39 +6,39 @@
 
 #IncludeRegexTransform: 
 
-/media/sf_ShareFiles/Homework2/Frame/Triangle.cpp
+/home/cs18/Desktop/Homework2/Frame/Triangle.cpp
 Triangle.hpp
-/media/sf_ShareFiles/Homework2/Frame/Triangle.hpp
+/home/cs18/Desktop/Homework2/Frame/Triangle.hpp
 algorithm
 -
 array
 -
 
-/media/sf_ShareFiles/Homework2/Frame/Triangle.hpp
+/home/cs18/Desktop/Homework2/Frame/Triangle.hpp
 eigen3/Eigen/Eigen
 -
 
-/media/sf_ShareFiles/Homework2/Frame/global.hpp
+/home/cs18/Desktop/Homework2/Frame/global.hpp
 
-/media/sf_ShareFiles/Homework2/Frame/main.cpp
+/home/cs18/Desktop/Homework2/Frame/main.cpp
 iostream
 -
 opencv2/opencv.hpp
 -
 rasterizer.hpp
-/media/sf_ShareFiles/Homework2/Frame/rasterizer.hpp
+/home/cs18/Desktop/Homework2/Frame/rasterizer.hpp
 global.hpp
-/media/sf_ShareFiles/Homework2/Frame/global.hpp
+/home/cs18/Desktop/Homework2/Frame/global.hpp
 Triangle.hpp
-/media/sf_ShareFiles/Homework2/Frame/Triangle.hpp
+/home/cs18/Desktop/Homework2/Frame/Triangle.hpp
 
-/media/sf_ShareFiles/Homework2/Frame/rasterizer.cpp
+/home/cs18/Desktop/Homework2/Frame/rasterizer.cpp
 algorithm
 -
 vector
 -
 rasterizer.hpp
-/media/sf_ShareFiles/Homework2/Frame/rasterizer.hpp
+/home/cs18/Desktop/Homework2/Frame/rasterizer.hpp
 opencv2/opencv.hpp
 -
 math.h
@@ -46,15 +46,15 @@ math.h
 cmath
 -
 
-/media/sf_ShareFiles/Homework2/Frame/rasterizer.hpp
+/home/cs18/Desktop/Homework2/Frame/rasterizer.hpp
 eigen3/Eigen/Eigen
 -
 algorithm
 -
 global.hpp
-/media/sf_ShareFiles/Homework2/Frame/global.hpp
+/home/cs18/Desktop/Homework2/Frame/global.hpp
 Triangle.hpp
-/media/sf_ShareFiles/Homework2/Frame/Triangle.hpp
+/home/cs18/Desktop/Homework2/Frame/Triangle.hpp
 
 /usr/local/include/eigen3/Eigen/Cholesky
 Core
