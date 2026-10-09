@@ -23,3 +23,9 @@ Homework2
 
 26/10/6 - complete homework2
 ![alt text](MarkdownPicture/Snipaste_2026-10-06_22-42-00.png)
+
+Homework3
+
+26/10/9 - accomplish interpolation part; fixed a few bugs  
+(interpolated normal output)
+![alt text](MarkdownPicture/output.png)
