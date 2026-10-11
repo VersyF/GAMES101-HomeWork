@@ -29,3 +29,5 @@ Homework3
 26/10/9 - accomplish interpolation part; fixed a few bugs  
 (interpolated normal output)
 ![alt text](MarkdownPicture/output.png)
+
+26/10/11 - accomplish Phong part，未验证

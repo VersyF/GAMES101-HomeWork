@@ -323,6 +323,11 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t, const std::array<Eig
                     Eigen::Vector2f interpolated_texcoords = alpha * t.tex_coords[0] / v[0].w() + beta * t.tex_coords[1] / v[1].w() + gamma * t.tex_coords[2] / v[2].w();
                     interpolated_texcoords *= w_reciprocal;
 
+                    Eigen::Vector3f interpolated_view_pos = alpha * view_pos[0] / v[0].w() 
+                                                          + beta * view_pos[1] / v[1].w() 
+                                                          + gamma * view_pos[2] / v[2].w();
+                    interpolated_view_pos *= w_reciprocal;
+
                     // auto interpolated_shadingcoordss
                     
                     //Initialize payload
@@ -332,6 +337,8 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t, const std::array<Eig
                         interpolated_texcoords,
                         texture ? &*texture : nullptr
                     );
+
+                    payload.view_pos = interpolated_view_pos;
 
                     Eigen::Vector3f color = fragment_shader(payload);
                     
