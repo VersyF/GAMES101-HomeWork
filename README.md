@@ -31,3 +31,12 @@ Homework3
 ![alt text](MarkdownPicture/output.png)
 
 26/10/11 - accomplish Phong part，未验证
+
+26/10/11 -   
+调试并修复phong shader  
+![alt text](MarkdownPicture/phong.png)
+
+实现、调试、修复texture Shader  
+![alt text](MarkdownPicture/texture2.png)  
+normal插值后未重新归一化的结果：  
+![alt text](MarkdownPicture/texture.png)

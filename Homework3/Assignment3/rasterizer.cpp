@@ -331,6 +331,7 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t, const std::array<Eig
                     // auto interpolated_shadingcoordss
                     
                     //Initialize payload
+                    // Use: fragment_shader_payload payload( interpolated_color, interpolated_normal.normalized(), interpolated_texcoords, texture ? &*texture : nullptr);
                     fragment_shader_payload payload(
                         interpolated_color,
                         interpolated_normal,
@@ -338,8 +339,11 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t, const std::array<Eig
                         texture ? &*texture : nullptr
                     );
 
+                    // Use: payload.view_pos = interpolated_shadingcoords;
                     payload.view_pos = interpolated_view_pos;
 
+                    // Use: Instead of passing the triangle's color directly to the frame buffer, pass the color to the shaders first to get the final color;
+                    // Use: auto pixel_color = fragment_shader(payload);
                     Eigen::Vector3f color = fragment_shader(payload);
                     
                     set_pixel(Eigen::Vector2i(j, i), color);
@@ -350,10 +354,8 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t, const std::array<Eig
     }
 
 
-    // Use: fragment_shader_payload payload( interpolated_color, interpolated_normal.normalized(), interpolated_texcoords, texture ? &*texture : nullptr);
-    // Use: payload.view_pos = interpolated_shadingcoords;
-    // Use: Instead of passing the triangle's color directly to the frame buffer, pass the color to the shaders first to get the final color;
-    // Use: auto pixel_color = fragment_shader(payload);
+
+    
 
  
 }
