@@ -43,3 +43,10 @@ normal插值后未重新归一化的结果：
 
 实现、调试、修复bump shader  
 ![alt text](MarkdownPicture/bump.png)
+
+实现、调试、修复displacement shader
+![alt text](MarkdownPicture/displacement2.png)  
+未移动position效果：  
+![alt text](MarkdownPicture/displacement.png)
+
+Homework 3 completed
