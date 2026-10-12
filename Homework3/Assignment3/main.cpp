@@ -180,13 +180,13 @@ Eigen::Vector3f phong_fragment_shader(const fragment_shader_payload& payload)
         
 
 
-        Eigen::Vector3f diffuse_color = diffuse * lightIntense * kd;
-        Eigen::Vector3f spec_color = specular * lightIntense * ks;
+        Eigen::Vector3f diffuse_color = diffuse * lightIntense.cwiseProduct(kd);
+        Eigen::Vector3f spec_color = specular * lightIntense.cwiseProduct(ks);
 
         result_color += diffuse_color;
         result_color += spec_color;
     }
-    result_color += ka * amb_light_intensity;
+    result_color += amb_light_intensity.cwiseProduct(ka);
 
     return result_color * 255.f;
 }
