@@ -40,3 +40,6 @@ Homework3
 ![alt text](MarkdownPicture/texture2.png)  
 normal插值后未重新归一化的结果：  
 ![alt text](MarkdownPicture/texture.png)
+
+实现、调试、修复bump shader  
+![alt text](MarkdownPicture/bump.png)

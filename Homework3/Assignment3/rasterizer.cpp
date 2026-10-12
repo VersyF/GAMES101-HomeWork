@@ -334,7 +334,7 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t, const std::array<Eig
                     // Use: fragment_shader_payload payload( interpolated_color, interpolated_normal.normalized(), interpolated_texcoords, texture ? &*texture : nullptr);
                     fragment_shader_payload payload(
                         interpolated_color,
-                        interpolated_normal,
+                        interpolated_normal.normalized(),
                         interpolated_texcoords,
                         texture ? &*texture : nullptr
                     );
