@@ -54,3 +54,10 @@ Homework 3 completed
 26/10/13
 实现、调试、修复homework4  
 ![alt text](MarkdownPicture/combine.png)
+
+MSAA：创建antialiasMSAA，传入曲线点集，创建包围盒，进行MSAA反走样  
+![alt text](MarkdownPicture/MSAA.png)  
+反走样优化：取消包围盒，改为标记 曲线点集 中每个点附近3*3的格子，只对标记的格子进行MSAA反走样  
+对于斜线的渲染速度，从原先10s左右提升到1秒内  
+
+Homework 4 completed
