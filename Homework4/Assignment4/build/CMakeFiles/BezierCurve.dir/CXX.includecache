@@ -13,4 +13,12 @@ iostream
 -
 opencv2/opencv.hpp
 -
+opencv2/opencv.hpp
+-
+vector
+-
+algorithm
+-
+limits
+-
 
