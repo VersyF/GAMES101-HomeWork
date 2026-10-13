@@ -32,7 +32,7 @@ Homework3
 
 26/10/11 - accomplish Phong part，未验证
 
-26/10/11 -   
+26/10/12 -   
 调试并修复phong shader  
 ![alt text](MarkdownPicture/phong.png)
 
@@ -50,3 +50,7 @@ normal插值后未重新归一化的结果：
 ![alt text](MarkdownPicture/displacement.png)
 
 Homework 3 completed
+
+26/10/13
+实现、调试、修复homework4  
+![alt text](MarkdownPicture/combine.png)
