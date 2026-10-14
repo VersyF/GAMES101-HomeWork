@@ -32,7 +32,7 @@ Homework3
 
 26/10/11 - accomplish Phong part，未验证
 
-26/10/12 -   
+26/10/12   
 调试并修复phong shader  
 ![alt text](MarkdownPicture/phong.png)
 
@@ -51,7 +51,7 @@ normal插值后未重新归一化的结果：
 
 Homework 3 completed
 
-26/10/13
+26/10/13  
 实现、调试、修复homework4  
 ![alt text](MarkdownPicture/combine.png)
 
@@ -61,3 +61,6 @@ MSAA：创建antialiasMSAA，传入曲线点集，创建包围盒，进行MSAA�
 对于斜线的渲染速度，从原先10s左右提升到1秒内  
 
 Homework 4 completed
+
+26/10/14  
+HW5:实现Render的发射坐标计算，未调试
