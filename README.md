@@ -64,3 +64,9 @@ Homework 4 completed
 
 26/10/14  
 HW5:实现Render的发射坐标计算，未调试
+
+26/10/15  
+HW5：实现Triangle的射线求交  
+![alt text](MarkdownPicture/binary.png)
+
+Homework 5 completed
