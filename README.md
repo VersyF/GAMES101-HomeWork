@@ -70,3 +70,6 @@ HW5：实现Triangle的射线求交
 ![alt text](MarkdownPicture/binary.png)
 
 Homework 5 completed
+
+26/10/16  
+HW6：实现Renderer射线发射，未验证
