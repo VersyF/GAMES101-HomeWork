@@ -73,3 +73,8 @@ Homework 5 completed
 
 26/10/16  
 HW6：实现Renderer射线发射，未验证
+
+26/10/17  
+HW6：  
+实现三角形求交intersection设置，未验证  
+实现intersect包围盒射线碰撞判断，未验证
