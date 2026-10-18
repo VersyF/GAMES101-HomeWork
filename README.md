@@ -85,3 +85,6 @@ HW6：
 ![alt text](MarkdownPicture/binary-1.png)
 
 Homework 6 completed
+
+26/10/18  
+HW7：从HW6迁移已有部分代码
