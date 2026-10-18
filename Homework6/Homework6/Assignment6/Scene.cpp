@@ -55,20 +55,24 @@ Vector3f Scene::castRay(const Ray &ray, int depth) const
     if (depth > this->maxDepth) {
         return Vector3f(0.0,0.0,0.0);
     }
-    Intersection intersection = Scene::intersect(ray);
+    Intersection intersection = Scene::intersect(ray);      //获取此光线与场景的相交情况
     Material *m = intersection.m;
     Object *hitObject = intersection.obj;
-    Vector3f hitColor = this->backgroundColor;
+    Vector3f hitColor = this->backgroundColor;  //hitColor初始化为背景颜色
 //    float tnear = kInfinity;
     Vector2f uv;
     uint32_t index = 0;
+
+    //光线与场景发生碰撞
     if(intersection.happened) {
 
         Vector3f hitPoint = intersection.coords;
         Vector3f N = intersection.normal; // normal
         Vector2f st; // st coordinates
-        hitObject->getSurfaceProperties(hitPoint, ray.direction, index, uv, N, st);
+        hitObject->getSurfaceProperties(hitPoint, ray.direction, index, uv, N, st);     //获取表面属性，顶点属性插值
 //        Vector3f tmp = hitPoint;
+
+        //分情况对材质处理
         switch (m->getType()) {
             case REFLECTION_AND_REFRACTION:
             {
@@ -118,6 +122,7 @@ Vector3f Scene::castRay(const Ray &ray, int depth) const
                     if (area_ptr)
                     {
                         // Do nothing for this assignment
+                        //忽略面光源
                     }
                     else
                     {
@@ -129,6 +134,7 @@ Vector3f Scene::castRay(const Ray &ray, int depth) const
                         Object *shadowHitObject = nullptr;
                         float tNearShadow = kInfinity;
                         // is the point in shadow, and is the nearest occluding object closer to the object than the light itself?
+                        //判断光源与着色点之间是否存在物体遮挡
                         bool inShadow = bvh->Intersect(Ray(shadowPointOrig, lightDir)).happened;
                         lightAmt += (1 - inShadow) * get_lights()[i]->intensity * LdotN;
                         Vector3f reflectionDirection = reflect(-lightDir, N);

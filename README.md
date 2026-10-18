@@ -1,11 +1,12 @@
 # GAMES101-HW
 Records of homework from GAMES101
 
-Homework0
+= Homework 0 =  
+
 26/9/29 - complete homework0
 ![alt text](MarkdownPicture/Snipaste_2026-09-29_19-21-41.png)
 
-Homework1
+= Homework 1 =
 
 26/9/30 - accomplish Model Matrix Part (rotate around z-axis)
 
@@ -15,7 +16,7 @@ Homework1
 ![alt text](MarkdownPicture/Oct01-1-x.gif)
 ![alt text](MarkdownPicture/Oct01-2-y.gif)
 
-Homework2
+= Homework 2 =
 
 26/10/2 - accomplish rasterize_Triangle function without check
 
@@ -24,7 +25,7 @@ Homework2
 26/10/6 - complete homework2
 ![alt text](MarkdownPicture/Snipaste_2026-10-06_22-42-00.png)
 
-Homework3
+= Homework 3 =
 
 26/10/9 - accomplish interpolation part; fixed a few bugs  
 (interpolated normal output)
@@ -51,6 +52,8 @@ normal插值后未重新归一化的结果：
 
 Homework 3 completed
 
+= Homework 4 =
+
 26/10/13  
 实现、调试、修复homework4  
 ![alt text](MarkdownPicture/combine.png)
@@ -62,6 +65,8 @@ MSAA：创建antialiasMSAA，传入曲线点集，创建包围盒，进行MSAA�
 
 Homework 4 completed
 
+= Homework 5 =
+
 26/10/14  
 HW5:实现Render的发射坐标计算，未调试
 
@@ -70,6 +75,8 @@ HW5：实现Triangle的射线求交
 ![alt text](MarkdownPicture/binary.png)
 
 Homework 5 completed
+
+= Homework 6 =
 
 26/10/16  
 HW6：实现Renderer射线发射，未验证
@@ -86,5 +93,8 @@ HW6：
 
 Homework 6 completed
 
+= Homework 7 =
+
 26/10/18  
-HW7：从HW6迁移已有部分代码
+HW7：从HW6迁移已有部分代码  
+HW7：Review HW6 Scene.castRay
