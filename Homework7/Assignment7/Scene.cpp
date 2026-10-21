@@ -89,8 +89,8 @@ Vector3f Scene::Shade(Ray ray) const
     Intersection castShadow = Scene::intersect(Ray(p+N*0.01f, castShadowRay));
 
     Vector3f f_r = m->eval(castShadowRay, wo, hit.normal);      //XX used L_hit.normal
-    float theta_p = dotProduct(N, castShadowRay);    //xx
-    float theta_x = dotProduct(L_hit.normal, -castShadowRay);
+    float theta_p = std::max(0.f, dotProduct(N, castShadowRay)); 
+    float theta_x = std::max(0.f, dotProduct(L_hit.normal, -castShadowRay));
     
     bool blocked = castShadow.happened && castShadow.distance < (hit.coords - L_hit.coords).norm() - 0.01f;
 
@@ -99,18 +99,25 @@ Vector3f Scene::Shade(Ray ray) const
     }
 
     //Indirect Light
-    /*
+    
     if(get_random_float() > RussianRoulette)
     {
         return L_dir;
     }
     Vector3f L_indir(0.f, 0.f, 0.f);
-    Vector3f wi = m->sample(wo, N);
+    Vector3f wi = normalize(m->sample(wo, N));
     float pdf_indir = m->pdf(wi, wo, N);
+    Ray wiRay = Ray(p+N*0.01f, wi);
+    Vector3f f_r_indir = m->eval(wi, wo, N);
+    float theta_indir = std::max(0.f, dotProduct(N, wi));
 
-    L_indir = Shade(Ray())
+    Intersection try_cast = Scene::intersect(wiRay);
+    if(try_cast.happened){
+        if(!try_cast.m->hasEmission()){
+            L_indir = Shade(Ray(p+N*0.01f, wi)) * f_r_indir * theta_indir / pdf_indir / RussianRoulette; 
+        }
+    }
+
 
     return L_dir + L_indir;
-    */
-    return L_dir;
 }

@@ -102,3 +102,7 @@ HW7：Review HW6 Scene.castRay
 26/10/20  
 HW7：编写直接光部分，存在阴影遮挡判断问题？，右侧小方块全黑  
 ![alt text](MarkdownPicture/direct(ShadowCast3).png)
+
+26/10/21
+HW7：添加间接光，存在bug  
+![alt text](MarkdownPicture/binary-2.png)
