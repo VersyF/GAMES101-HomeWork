@@ -72,6 +72,9 @@ Vector3f Scene::Shade(Ray ray) const
     if(!hit.happened){
         return Vector3f(0.f, 0.f, 0.f);
     }
+    if(hit.m->hasEmission()){
+        return hit.m->getEmission();
+    }
     Vector3f wo = -ray.direction;
 
     Vector3f p = hit.coords;
@@ -92,7 +95,7 @@ Vector3f Scene::Shade(Ray ray) const
     float theta_p = std::max(0.f, dotProduct(N, castShadowRay)); 
     float theta_x = std::max(0.f, dotProduct(L_hit.normal, -castShadowRay));
     
-    bool blocked = castShadow.happened && castShadow.distance < (hit.coords - L_hit.coords).norm() - 0.01f;
+    bool blocked = castShadow.happened && castShadow.distance < (p+N*0.01f - L_hit.coords).norm() - 0.01f;
 
     if(!blocked){
         L_dir = L_hit.emit * f_r * theta_p * theta_x / std::pow((hit.coords - L_hit.coords).norm(), 2) / pdf;
@@ -118,6 +121,6 @@ Vector3f Scene::Shade(Ray ray) const
         }
     }
 
-
+    //return L_dir;
     return L_dir + L_indir;
 }
